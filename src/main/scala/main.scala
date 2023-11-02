@@ -1,5 +1,10 @@
 import scala.annotation.tailrec
 
+/* Zadanie 1:
+Dla evenR(3) w scali głębokosć stosu to 4
+evenR(3) => oddR(2) => evenR(1) => oddR(0)
+W ocaML głębokość stosu to 1, ponieważ kompilator optymalizuje rekurencję ogonową do pętli.
+*/
 
 // Zadanie 2:
 private def fibonacci(n: Int): Int = {
