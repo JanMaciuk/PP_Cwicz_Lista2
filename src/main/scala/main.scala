@@ -7,16 +7,28 @@ W ocaML głębokość stosu to 1, ponieważ kompilator optymalizuje rekurencję 
 */
 
 // Zadanie 2:
-private def fibonacci(n: Int): Int = {
+private def fibonacci(n: Int): Long = {
   if (n <= 1) n
   else fibonacci(n - 1) + fibonacci(n - 2)
 }
 @tailrec
-private def fibonacciTailRec(searchedStep:Int, previousValue: Int, currentValue: Int, currentStep: Int): Int = {
+private def fibonacciTailRec(searchedStep:Int, previousValue: Long, currentValue: Long, currentStep: Int): Long = {
   if (currentStep == searchedStep) currentValue
   else fibonacciTailRec(searchedStep,currentValue, previousValue + currentValue, currentStep + 1)
 } // Wywoływanie n razy, za każdym razem obliczając kolejną liczbę fibonacciego
 // druga funkcja jest szybsza, kompilator optymalizuje rekurencje ogonową do pętli, redukując rozmiar stosu i liczbę wywołań.
+
+// Zadanie 4:
+private def task4(): Unit  = {
+  val listA = List(-2, -1, 0, 1, 2)
+  val List(_, _, x1, _, _) = listA
+  val listB = List((1, 2), (0, 1))
+  val List((_, _), (x2, _)) = listB
+  print("\nZadanie 4 - dopasowanie do wzorca: \n")
+  println("x1: " + x1)
+  println("x2: " + x2)
+}
+
 
 
 
@@ -25,5 +37,13 @@ private def fibonacciTailRec(searchedStep:Int, previousValue: Int, currentValue:
 
 @main
 def main(): Unit = {
-  println("Hello world!")
+  //Zadanie 2:
+  print("\nZadanie 2 - fibonacci: \n")
+  println(fibonacciTailRec(42,0,1,1))
+  println(fibonacci(42))
+
+  //Zadanie 4:
+  task4()
+
+
 }
