@@ -38,6 +38,7 @@ let rec initSegment list1 list2 =
   let list2 = [1; 2; 3; 4; 5]
   let result = initSegment list1 list2 
   let _ = print_string (string_of_bool result)
+  let _ = print_newline()
 
 (*Zadanie 6:*)
 let rec replaceNth list index newElement =
@@ -45,5 +46,8 @@ let rec replaceNth list index newElement =
   | ([], _) -> []  (* Pusta lista *)
   | (head :: tail, 0) -> newElement :: tail  (* dotarłem do szukanego elementu, zamieniam go *)
   | (head :: tail, i) when i > 0 -> head :: (replaceNth tail (i - 1) newElement)  (* szukam dalej *)
-  | _ -> list (* jeżeli warunek if (i > 0) nie jest spełniony, to podane niepoprawny indeks *)
+  | _ -> list (* jeżeli warunek if (i > 0) nie jest spełniony, to podano niepoprawny indeks *)
 
+  let listReplicate = [1; 2; 3; 4; 5]
+  let result = replaceNth listReplicate 2 10
+  let _ = List.iter (fun x -> print_int x; print_string ", ") result

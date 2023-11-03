@@ -42,7 +42,7 @@ def replaceNth[A](list: List[A], index: Int, newElement: A): List[A] = (list, in
   case (Nil, _) => Nil  // Pusta lista
   case (head :: tail, 0) => newElement :: tail // dotarłem do szukanego elementu, zamieniam go
   case (head :: tail, i) if (i > 0) => head :: replaceNth(tail, i - 1, newElement) // szukam dalej
-  case _ => list  // jeżeli warunek if (i > 0) nie jest spełniony, to podane niepoprawny indeks
+  case _ => list  // jeżeli warunek if (i > 0) nie jest spełniony, to podano niepoprawny indeks
 }
 // Funkcja wykona się w czasie O(n) gdzie n to indeks szukanego elementu, ponieważ musi przejść przez n elementów do szukanego indeksu.
 
