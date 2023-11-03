@@ -11,3 +11,11 @@ let resultFibonacci = fibonaccTAilRec 10 0 1 1;;
 print_int resultFibonacci;;
 print_newline();;
 
+(**Zadanie 4:**)
+let listA = [-2, -1, 0, 1, 2]
+let [_, _, x1, _, _] = listA
+
+let listB = [[1, 2], [0, 1]]
+let [[_, _], [x2, _]] = listB
+
+
