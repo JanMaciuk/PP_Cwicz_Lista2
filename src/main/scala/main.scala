@@ -29,7 +29,13 @@ private def task4(): Unit  = {
   println("x2: " + x2)
 }
 
-
+// Zadanie 5:
+@tailrec
+private def initSegment[A](list1: List[A], list2: List[A]): Boolean = (list1, list2) match {
+  case (Nil, _) => true
+  case (_, Nil) => false
+  case (head1 :: tail1, head2 :: tail2) => if (head1 == head2) initSegment(tail1, tail2) else false
+}
 
 
 
@@ -44,6 +50,10 @@ def main(): Unit = {
 
   //Zadanie 4:
   task4()
+
+  //Zadanie 5:
+  print("\nZadanie 5 - sprawdzanie początkowego segmentu listy: \n")
+  println(initSegment(List(1,2,3), List(1,2,3,4,5)))
 
 
 }
