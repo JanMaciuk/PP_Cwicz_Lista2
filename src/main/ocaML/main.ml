@@ -1,3 +1,12 @@
+(**
+    compiling:
+    cd src
+    cd main
+    cd ocaML
+    ocamlc -o main.byte main.ml
+    ./main.byte
+*)
+
 (**Zadanie 2:**)
 let rec fibonacci n =
   if n <= 1 then n
@@ -19,3 +28,13 @@ let listB = [[1, 2], [0, 1]]
 let [[_, _], [x2, _]] = listB
 
 
+(**Zadanie 5:**)
+let rec initSegment list1 list2 =
+  match (list1, list2) with
+  | ([], _) -> true
+  | (_, []) -> false
+  | (head1::tail1, head2::tail2) -> if head1 = head2 then initSegment tail1 tail2 else false
+  let list1 = [1; 2; 3]
+  let list2 = [1; 2; 3; 4; 5]
+  let result = initSegment list1 list2 
+  let _ = print_string (string_of_bool result)
