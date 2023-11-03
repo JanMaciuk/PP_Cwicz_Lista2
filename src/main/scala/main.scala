@@ -37,7 +37,14 @@ private def initSegment[A](list1: List[A], list2: List[A]): Boolean = (list1, li
   case (head1 :: tail1, head2 :: tail2) => if (head1 == head2) initSegment(tail1, tail2) else false
 }
 
-
+//Zadanie 6:
+def replaceNth[A](list: List[A], index: Int, newElement: A): List[A] = (list, index) match {
+  case (Nil, _) => Nil  // Pusta lista
+  case (head :: tail, 0) => newElement :: tail // dotarłem do szukanego elementu, zamieniam go
+  case (head :: tail, i) if (i > 0) => head :: replaceNth(tail, i - 1, newElement) // szukam dalej
+  case _ => list  // jeżeli warunek if (i > 0) nie jest spełniony, to podane niepoprawny indeks
+}
+// Funkcja wykona się w czasie O(n) gdzie n to indeks szukanego elementu, ponieważ musi przejść przez n elementów do szukanego indeksu.
 
 
 
@@ -55,5 +62,8 @@ def main(): Unit = {
   print("\nZadanie 5 - sprawdzanie początkowego segmentu listy: \n")
   println(initSegment(List(1,2,3), List(1,2,3,4,5)))
 
+  //Zadanie 6:
+  print("\nZadanie 6 - zamiana n-tego elementu listy: \n")
+  println(replaceNth(List(1,2,3,4,5), 2, 9))
 
 }
